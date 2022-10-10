@@ -2,6 +2,7 @@ plugins {
     java
     application
     id("org.sourcegrade.submitter") version "0.5.1"
+    id("org.openjfx.javafxplugin") version "0.0.13"
 }
 
 submit {
@@ -21,7 +22,14 @@ submit {
 // Falsch z.B. 1234567
 
 repositories {
+    mavenLocal()
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
     mavenCentral()
+}
+
+javafx {
+    version = "17.0.1"
+    modules("javafx.controls", "javafx.fxml")
 }
 
 val publicTest: SourceSet by sourceSets.creating {
@@ -32,12 +40,13 @@ val publicTest: SourceSet by sourceSets.creating {
 
 dependencies {
     implementation("org.jetbrains:annotations:23.0.0")
+    implementation("org.tudalgo:algoutils-student:0.1.0-SNAPSHOT")
     // JUnit only available in "test" source set (./src/test)
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.0")
 }
 
 application {
-    mainClass.set("h13.Main")
+    mainClass.set("h13.SpaceInvaders")
 }
 
 tasks {
