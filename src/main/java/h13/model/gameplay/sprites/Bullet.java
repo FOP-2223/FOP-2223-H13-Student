@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 import java.util.HashSet;
 import java.util.Set;
 
-import static h13.controller.GameConstants.BULLET_VELOCITY;
+import static h13.controller.GameConstants.*;
 import static org.tudalgo.algoutils.student.Student.crash;
 
 /**
@@ -43,7 +43,7 @@ public class Bullet extends Sprite {
      * @param direction The direction the Bullet is travelling towards.
      */
     public Bullet(final double x, final double y, final GameState gameState, final BattleShip owner, final Direction direction) {
-        super(x, y, 1, 5, Color.WHITE, BULLET_VELOCITY, 1, gameState);
+        super(x, y, BULLET_WIDTH, BULLET_HEIGHT, Color.WHITE, BULLET_VELOCITY, 1, gameState);
         this.owner = owner;
         setDirection(direction);
     }
@@ -77,7 +77,7 @@ public class Bullet extends Sprite {
      * @return True if the Bullet can damage the given Sprite.
      */
     public boolean canHit(final BattleShip other) {
-        return crash();
+        return crash(); // TODO: H1.2 - remove if implemented
     }
 
     /**
@@ -86,7 +86,7 @@ public class Bullet extends Sprite {
      * @param other The BattleShip to hit.
      */
     public void hit(final BattleShip other) {
-        crash();
+        crash(); // TODO: H1.2 - remove if implemented
     }
 
     // TODO: Check if the Bullet is out of bounds and die if it is.

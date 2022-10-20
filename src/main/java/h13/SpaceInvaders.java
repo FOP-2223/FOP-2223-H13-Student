@@ -12,7 +12,7 @@ public class SpaceInvaders extends Application {
 
     @Override
     public void start(final Stage stage) throws Exception {
-        Student.setCrashEnabled(false);
+        //Student.setCrashEnabled(false);
         SceneSwitcher.loadScene(SceneSwitcher.SceneType.MAIN_MENU, stage);
     }
 

@@ -1,12 +1,6 @@
 package h13.model.gameplay;
 
-import h13.controller.ApplicationSettings;
-import h13.controller.gamelogic.EnemyController;
-import h13.model.gameplay.sprites.Enemy;
-import h13.shared.Utils;
-import javafx.geometry.BoundingBox;
 import javafx.geometry.Bounds;
-import org.jetbrains.annotations.Nullable;
 
 import static h13.controller.GameConstants.*;
 import static org.tudalgo.algoutils.student.Student.crash;
@@ -26,7 +20,7 @@ public class EnemyMovement implements Updatable {
     /**
      * The current movement speed
      */
-    private double velocity;
+    private double velocity = INITIAL_ENEMY_MOVEMENT_VELOCITY;
 
     /**
      * The Next y-coordinate to reach
@@ -98,7 +92,7 @@ public class EnemyMovement implements Updatable {
      * @return {@code true} if the bottom was reached, {@code false} otherwise.
      */
     public boolean bottomWasReached() {
-        return crash();
+        return crash(); // TODO: H1.6 - remove if implemented
     }
 
     /**
@@ -118,7 +112,7 @@ public class EnemyMovement implements Updatable {
      * @return The BoundingBox.
      */
     public Bounds getEnemyBounds() {
-        return crash();
+        return crash(); // TODO: H1.6 - remove if implemented
     }
 
     /**
@@ -128,14 +122,14 @@ public class EnemyMovement implements Updatable {
      * @return {@code true} if the target Position of the current movement iteration is reached, {@code false} otherwise.
      */
     private boolean targetReached(final Bounds enemyBounds) {
-        return crash();
+        return crash(); // TODO: H1.6 - remove if implemented
     }
 
     // --Movement-- //
 
     @Override
     public void update(final double elapsedTime) {
-        crash();
+        crash(); // TODO: H1.6 - remove if implemented
     }
 
     /**
@@ -145,7 +139,7 @@ public class EnemyMovement implements Updatable {
      * @param deltaY The deltaY.
      */
     private void updatePositions(final double deltaX, final double deltaY) {
-        crash();
+        crash(); // TODO: H1.6 - remove if implemented
     }
 
     /**
@@ -154,7 +148,7 @@ public class EnemyMovement implements Updatable {
      * @param enemyBounds The BoundingBox of all alive enemies.
      */
     private void nextMovement(final Bounds enemyBounds) {
-        crash();
+        crash(); // TODO: H1.6 - remove if implemented
     }
 
     /**
@@ -163,7 +157,6 @@ public class EnemyMovement implements Updatable {
      */
     public void nextRound() {
         direction = INITIAL_ENEMY_MOVEMENT_DIRECTION;
-        velocity = INITIAL_ENEMY_MOVEMENT_VELOCITY;
         yTarget = 0;
     }
 }

@@ -53,6 +53,9 @@ public class HighscoreController extends SceneController {
     public void initStage(final Stage stage) {
         super.initStage(stage);
 
-        crash();
+        playerTableColumn.setCellValueFactory(new PropertyValueFactory<>("playerName"));
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        scoreTableColumn.setCellValueFactory(new PropertyValueFactory<>("score"));
+        highscoreTableView.setItems(ApplicationSettings.getHighscores());
     }
 }

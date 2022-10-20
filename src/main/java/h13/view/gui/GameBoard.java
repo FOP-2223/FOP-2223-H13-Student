@@ -107,7 +107,7 @@ public class GameBoard extends Canvas implements Updatable {
      * @param gc The {@link GraphicsContext} to draw the background to.
      */
     private void drawBackground(final GraphicsContext gc) {
-        crash();
+        crash(); // TODO: H2.3 - remove if implemented
     }
 
     /**
@@ -125,7 +125,7 @@ public class GameBoard extends Canvas implements Updatable {
      * @param gc The {@link GraphicsContext} to draw the sprites to.
      */
     private void drawSprites(final GraphicsContext gc) {
-        crash();
+        crash(); // TODO: H2.3 - remove if implemented
     }
 
     /**
@@ -142,7 +142,7 @@ public class GameBoard extends Canvas implements Updatable {
      * @param gc The {@link GraphicsContext} to draw the HUD to.
      */
     private void drawHUD(final GraphicsContext gc) {
-        crash();
+        crash(); // TODO: H2.3 - remove if implemented
     }
 
     /**
@@ -158,6 +158,6 @@ public class GameBoard extends Canvas implements Updatable {
      * @param gc The {@link GraphicsContext} to draw the border to.
      */
     private static void drawBorder(final GraphicsContext gc) {
-        crash();
+        crash(); // TODO: H2.3 - remove if implemented
     }
 }

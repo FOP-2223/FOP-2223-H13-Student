@@ -1,12 +1,8 @@
 package h13.controller.gamelogic;
 
 import h13.controller.scene.game.GameController;
-import h13.model.gameplay.Direction;
 import h13.model.gameplay.sprites.Player;
 import javafx.scene.input.KeyEvent;
-
-import java.util.HashSet;
-import java.util.Set;
 
 import static h13.controller.GameConstants.*;
 import static org.tudalgo.algoutils.student.Student.crash;
@@ -40,7 +36,7 @@ public class PlayerController {
         this.gameController = gameController;
         player = new Player(
             0,
-            ORIGINAL_GAME_BOUNDS.getHeight() - ORIGINAL_GAME_BOUNDS.getWidth() * RELATIVE_SHIP_WIDTH,
+            ORIGINAL_GAME_BOUNDS.getHeight() - SHIP_SIZE,
             PLAYER_VELOCITY,
             gameController.getGameState());
         getGameController().getGameState().getSprites().add(player);
@@ -82,7 +78,7 @@ public class PlayerController {
      * @param e A {@link KeyEvent} to handle which relates to a Player action.
      */
     private void playerKeyAction(final KeyEvent e) {
-        crash();
+        crash(); // TODO: H3.2 - remove if implemented
     }
 
     /**

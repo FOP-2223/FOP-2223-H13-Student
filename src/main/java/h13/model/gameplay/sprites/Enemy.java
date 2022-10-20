@@ -94,6 +94,6 @@ public class Enemy extends BattleShip {
     public void update(final double elapsedTime) {
         super.update(elapsedTime);
 
-        crash();
+        crash(); // TODO: H1.4 - remove if implemented
     }
 }

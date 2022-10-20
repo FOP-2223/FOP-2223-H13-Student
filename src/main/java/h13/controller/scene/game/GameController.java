@@ -280,7 +280,7 @@ public class GameController extends SceneController implements Updatable {
      * Handles what happens when the {@linkplain Player player} is isDefeated.
      */
     private void lose() {
-        crash();
+        crash(); // TODO: H3.1 - remove if implemented
     }
 
     /**
@@ -296,7 +296,7 @@ public class GameController extends SceneController implements Updatable {
      */
     private void handleKeyboardInputs() {
         getGameInputHandler().addOnKeyReleased(k -> {
-            crash();
+            crash(); // TODO: H3.1 - remove if implemented
         });
     }
 
@@ -343,7 +343,7 @@ public class GameController extends SceneController implements Updatable {
      * Calculate the collision between the sprites and damages the collided sprites.
      */
     private void doCollisions() {
-        crash();
+        crash(); // TODO: H3.1 - remove if implemented
     }
 
     /**
@@ -352,6 +352,6 @@ public class GameController extends SceneController implements Updatable {
      * @param damaged The damaged sprites.
      */
     public void updatePoints(final List<Sprite> damaged) {
-        crash();
+        crash(); // TODO: H3.1 - remove if implemented
     }
 }

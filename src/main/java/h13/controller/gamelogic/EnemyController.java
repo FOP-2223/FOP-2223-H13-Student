@@ -2,7 +2,6 @@ package h13.controller.gamelogic;
 
 import h13.controller.scene.game.GameController;
 import h13.model.gameplay.EnemyMovement;
-import h13.controller.GameConstants;
 import h13.model.gameplay.sprites.Bullet;
 import h13.model.gameplay.sprites.Enemy;
 
@@ -57,7 +56,7 @@ public final class EnemyController {
      * @see Enemy#isDead()
      */
     public boolean isDefeated() {
-        return crash();
+        return crash(); // TODO: H3.3 - remove if implemented
     }
 
     // --Other Methods-- //
@@ -71,8 +70,7 @@ public final class EnemyController {
         getGameController().getGameState().getSprites().removeIf(s -> s instanceof Bullet b && b.getOwner() instanceof Enemy);
 
         // add new enemies
-        final var horizontalSpace = ORIGINAL_GAME_BOUNDS.getWidth();
-        final var padding = CHUNK_SIZE / 2 - GameConstants.RELATIVE_SHIP_WIDTH * horizontalSpace / 2;
+        final var padding = CHUNK_SIZE / 2 - SHIP_SIZE / 2;
         for (int i = 0; i < ENEMY_COLS; i++) {
             for (int j = 0; j < ENEMY_ROWS; j++) {
                 final var enemy = new Enemy(
@@ -91,6 +89,5 @@ public final class EnemyController {
         }
         // reset enemy movement
         getGameController().getGameState().getEnemyMovement().nextRound();
-
     }
 }

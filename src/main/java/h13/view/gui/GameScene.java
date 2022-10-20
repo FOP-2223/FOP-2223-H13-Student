@@ -86,9 +86,9 @@ public class GameScene extends Scene implements ControlledScene<GameController> 
         gameBoard = new GameBoard(ORIGINAL_GAME_BOUNDS.getWidth(), ORIGINAL_GAME_BOUNDS.getHeight(), this);
 
         // Size
-        crash();
+        crash(); // TODO: H2.1 - remove if implemented
         // Positioning
-        crash();
+        crash(); // TODO: H2.1 - remove if implemented
 
         root.getChildren().add(gameBoard);
     }

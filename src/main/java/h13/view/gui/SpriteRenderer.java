@@ -30,6 +30,6 @@ public final class SpriteRenderer {
      * @see GraphicsContext
      */
     public static void renderSprite(@NotNull final GraphicsContext gc, @NotNull final Sprite s) {
-        crash();
+        crash(); // TODO: H2.2 - remove if implemented
     }
 }

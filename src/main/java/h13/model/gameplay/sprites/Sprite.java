@@ -4,14 +4,12 @@ import h13.controller.ApplicationSettings;
 import h13.model.gameplay.Direction;
 import h13.model.gameplay.GameState;
 import h13.model.gameplay.Updatable;
-import h13.shared.Utils;
 import javafx.geometry.BoundingBox;
 import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import org.jetbrains.annotations.NotNull;
 
-import static h13.controller.GameConstants.ORIGINAL_GAME_BOUNDS;
 import static org.tudalgo.algoutils.student.Student.crash;
 
 /**
@@ -214,7 +212,7 @@ public abstract class Sprite implements Updatable {
      * @return whether the sprite is no longer alive.
      */
     public boolean isDead() {
-        return crash();
+        return crash(); // TODO: H1.1 - remove if implemented
     }
 
     /**
@@ -263,7 +261,15 @@ public abstract class Sprite implements Updatable {
      * @param path the path to the texture.
      */
     protected void loadTexture(final String path) {
-        crash();
+        if (!ApplicationSettings.loadTexturesProperty().get()) {
+            return;
+        }
+        try {
+            texture = new Image(path);
+        } catch (final Exception e) {
+            System.out.println("Failed to load texture: " + path);
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -334,7 +340,7 @@ public abstract class Sprite implements Updatable {
      * @param amount the amount to damage the sprite by.
      */
     public void damage(final int amount) {
-        crash();
+        crash(); // TODO: H1.1 - remove if implemented
     }
 
     /**
@@ -350,12 +356,12 @@ public abstract class Sprite implements Updatable {
      * Kills the sprite.
      */
     public void die() {
-        crash();
+        crash(); // TODO: H1.1 - remove if implemented
     }
     // --update-- //
 
     @Override
     public void update(final double elapsedTime) {
-        crash();
+        crash(); // TODO: H1.1 - remove if implemented
     }
 }

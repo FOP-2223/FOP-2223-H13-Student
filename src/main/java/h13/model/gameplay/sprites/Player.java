@@ -3,6 +3,7 @@ package h13.model.gameplay.sprites;
 import h13.model.gameplay.Direction;
 import h13.model.gameplay.GameState;
 import javafx.scene.paint.Color;
+import org.jetbrains.annotations.Nullable;
 
 import static org.tudalgo.algoutils.student.Student.crash;
 
@@ -19,6 +20,11 @@ public class Player extends BattleShip {
     private int score;
 
     /**
+     * The Player name.
+     */
+    private @Nullable String name;
+
+    /**
      * Whether the player is continuously shooting.
      */
     private boolean keepShooting = false;
@@ -28,8 +34,8 @@ public class Player extends BattleShip {
     /**
      * Creates a new player.
      *
-     * @param x              The x-coordinate of the player.
-     * @param y              The y-coordinate of the player.
+     * @param x         The x-coordinate of the player.
+     * @param y         The y-coordinate of the player.
      * @param gameState The game state.
      */
     public Player(final double x, final double y, final double velocity, final GameState gameState) {
@@ -57,6 +63,26 @@ public class Player extends BattleShip {
      */
     public void setScore(final int score) {
         this.score = score;
+    }
+
+    /**
+     * Gets the player's current {@link #name}.
+     *
+     * @return The player's current {@link #name}.
+     * @see #name
+     */
+    public @Nullable String getName() {
+        return name;
+    }
+
+    /**
+     * Sets the player's {@link #name} to the given value.
+     *
+     * @param name The player's new {@link #name}.
+     * @see #name
+     */
+    public void setName(final String name) {
+        this.name = name;
     }
 
     /**
@@ -115,6 +141,6 @@ public class Player extends BattleShip {
     public void update(final double elapsedTime) {
         super.update(elapsedTime);
 
-       crash();
+       crash(); // TODO: H1.5 - remove if implemented
     }
 }

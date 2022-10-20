@@ -5,6 +5,7 @@ import javafx.geometry.BoundingBox;
 import javafx.geometry.Bounds;
 
 import static h13.controller.GameConstants.ORIGINAL_GAME_BOUNDS;
+import static org.tudalgo.algoutils.student.Student.crash;
 
 /**
  * A Utils class containing utility methods.
@@ -19,12 +20,7 @@ public class Utils {
      * @see <a href="https://en.wikipedia.org/wiki/Clamping_(graphics)">Clamping_(graphics)</a>
      */
     public static Bounds clamp(final Bounds bounds) {
-        return new BoundingBox(
-            Math.max(0, Math.min(ORIGINAL_GAME_BOUNDS.getWidth() - bounds.getWidth(), bounds.getMinX())),
-            Math.max(0, Math.min(ORIGINAL_GAME_BOUNDS.getHeight() - bounds.getHeight(), bounds.getMinY())),
-            bounds.getWidth(),
-            bounds.getHeight()
-        );
+        return crash(); // TODO: H1.1 - remove if implemented
     }
 
     /**
@@ -37,11 +33,6 @@ public class Utils {
      * @return the moved bounds
      */
     public static Bounds getNextPosition(final Bounds bounds, final double velocity, final Direction direction, final double elapsedTime) {
-        return new BoundingBox(
-            bounds.getMinX() + direction.getX() * velocity * elapsedTime,
-            bounds.getMinY() + direction.getY() * velocity * elapsedTime,
-            bounds.getWidth(),
-            bounds.getHeight()
-        );
+        return crash(); // TODO: H1.1 - remove if implemented
     }
 }

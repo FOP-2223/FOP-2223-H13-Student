@@ -1,13 +1,11 @@
 package h13.model.gameplay.sprites;
 
-import h13.controller.ApplicationSettings;
 import h13.model.gameplay.Direction;
 import h13.model.gameplay.GameState;
 import javafx.scene.paint.Color;
 import org.jetbrains.annotations.Nullable;
 
-import static h13.controller.GameConstants.ORIGINAL_GAME_BOUNDS;
-import static h13.controller.GameConstants.RELATIVE_SHIP_WIDTH;
+import static h13.controller.GameConstants.*;
 import static org.tudalgo.algoutils.student.Student.crash;
 
 /**
@@ -37,8 +35,8 @@ public class BattleShip extends Sprite {
         super(
             x,
             y,
-            RELATIVE_SHIP_WIDTH * ORIGINAL_GAME_BOUNDS.getWidth(),
-            RELATIVE_SHIP_WIDTH * ORIGINAL_GAME_BOUNDS.getWidth(),
+            SHIP_SIZE,
+            SHIP_SIZE,
             color,
             velocity,
             health,
@@ -84,7 +82,7 @@ public class BattleShip extends Sprite {
      * @return {@code true} if the given {@link BattleShip} is befriended with this Ship, {@code false} otherwise.
      */
     public boolean isFriend(final BattleShip other) {
-        return crash();
+        return crash(); // TODO: H1.3 - remove if implemented
     }
 
     /**
@@ -105,6 +103,6 @@ public class BattleShip extends Sprite {
      * @param direction The {@link Direction} to shoot the {@link Bullet} towards.
      */
     protected void shoot(final Direction direction) {
-        crash();
+        crash(); // TODO: H1.3 - remove if implemented
     }
 }
