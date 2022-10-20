@@ -5,8 +5,6 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.Date;
-
 /**
  * A Data class that contains the ApplicationSettings.
  * Also handles Saving and Loading of the settings from the filesystem.
@@ -146,7 +144,7 @@ public final class ApplicationSettings {
      * The list of highscore entries.
      */
     private static final ObservableList<HighscoreEntry> highscores = FXCollections.observableArrayList(
-        new HighscoreEntry("Player 1", new Date().toString(), 100)
+        //new HighscoreEntry("Player 1", new Date().toString(), 100) // Example entry
     );
 
     /**

@@ -1,8 +1,6 @@
 package h13.controller.scene.menu;
 
-import h13.controller.ApplicationSettings;
 import h13.controller.scene.SceneController;
-import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Slider;
 import javafx.stage.Stage;
