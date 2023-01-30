@@ -16,9 +16,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.scene.Scene;
 import h13.view.gui.GameBoard;
-import h13.view.gui.GameScene;
-import javafx.geometry.Bounds;
-import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -354,7 +351,11 @@ public class StudentLinks {
             INITIAL_ENEMY_MOVEMENT_DIRECTION_FIELD(BasicTypeLink.of(GameConstants.class).getField(identical("INITIAL_ENEMY_MOVEMENT_DIRECTION"))),
             INITIAL_ENEMY_MOVEMENT_VELOCITY_FIELD(BasicTypeLink.of(GameConstants.class).getField(identical("INITIAL_ENEMY_MOVEMENT_VELOCITY"))),
             ENEMY_MOVEMENT_SPEED_INCREASE_FIELD(BasicTypeLink.of(GameConstants.class).getField(identical("ENEMY_MOVEMENT_SPEED_INCREASE"))),
-            SHIP_PADING_FIELD(BasicTypeLink.of(GameConstants.class).getField(identical("SHIP_PADING"))),
+            SHIP_PADDING_FIELD(BasicTypeLink.of(GameConstants.class).getField(MatcherUtils.or(
+                identical("SHIP_PADDING"),
+                // Typo in initial student template
+                identical("SHIP_PADING")
+            ))),
             HORIZONTAL_ENEMY_MOVE_DISTANCE_FIELD(BasicTypeLink.of(GameConstants.class).getField(identical("HORIZONTAL_ENEMY_MOVE_DISTANCE"))),
             VERTICAL_ENEMY_MOVE_DISTANCE_FIELD(BasicTypeLink.of(GameConstants.class).getField(identical("VERTICAL_ENEMY_MOVE_DISTANCE"))),
             HORIZONTAL_ENEMY_MOVE_SPACE_FIELD(BasicTypeLink.of(GameConstants.class).getField(identical("HORIZONTAL_ENEMY_MOVE_SPACE"))),
