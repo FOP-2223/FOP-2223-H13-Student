@@ -56,7 +56,7 @@ public class Enemy extends BattleShip {
      *
      * @return The enemy's X-index of the enemy grid.
      */
-    public int getxIndex() {
+    public int getXIndex() {
         return xIndex;
     }
 
@@ -65,7 +65,7 @@ public class Enemy extends BattleShip {
      *
      * @return The enemy's Y-index of the enemy grid.
      */
-    public int getyIndex() {
+    public int getYIndex() {
         return yIndex;
     }
 
