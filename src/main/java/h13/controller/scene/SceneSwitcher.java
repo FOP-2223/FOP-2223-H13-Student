@@ -29,7 +29,7 @@ public final class SceneSwitcher {
          */
         MAIN_MENU(() -> SceneAndController.fromScene(new MainMenuScene())),
         /**
-         * The about scene.
+         * The "about" scene.
          */
         ABOUT(() -> SceneAndController.fromScene(new AboutScene())),
         /**
