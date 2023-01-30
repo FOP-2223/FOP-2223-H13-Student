@@ -9,7 +9,9 @@ import static h13.controller.GameConstants.*;
 import static org.tudalgo.algoutils.student.Student.crash;
 
 /**
- * An EnemyController is responsible for instantiating and updating the enemies.
+ * An {@link EnemyController} is responsible for instantiating and updating the enemies.
+ *
+ * @see Enemy
  */
 @SuppressWarnings("ClassCanBeRecord")
 public final class EnemyController {

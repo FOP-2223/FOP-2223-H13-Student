@@ -5,7 +5,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.text.Font;
 
 /**
- * The AboutScene is a SubMenuScene that displays information about the project.
+ * The {@link AboutScene} is a {@link SubMenuScene} that displays information about the project.
  */
 public class AboutScene extends SubMenuScene<AboutController, TextArea> {
 

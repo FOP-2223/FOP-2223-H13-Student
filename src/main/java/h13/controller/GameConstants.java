@@ -7,11 +7,11 @@ import javafx.geometry.Bounds;
 import javafx.scene.paint.Color;
 
 /**
- * The GameConstants class contains all the constants that are used in the game.
+ * The {@link GameConstants} class contains all the constants that are used in the game.
  */
 public final class GameConstants {
     /**
-     * The Bounds of the original game screen.
+     * The {@link Bounds} of the original game screen.
      */
     public static final Bounds ORIGINAL_GAME_BOUNDS = new BoundingBox(
         0,
@@ -25,12 +25,12 @@ public final class GameConstants {
      */
     public static final double ASPECT_RATIO = ORIGINAL_GAME_BOUNDS.getWidth() / ORIGINAL_GAME_BOUNDS.getHeight();
     /**
-     * The Amount of enemy rows.
+     * The amount of enemy rows.
      */
     public static final int ENEMY_ROWS = 5;
 
     /**
-     * The Amount of enemy columns.
+     * The amount of enemy columns.
      */
     public static final int ENEMY_COLS = 11;
 
@@ -50,7 +50,7 @@ public final class GameConstants {
     public static final double ENEMY_MOVEMENT_SPEED_INCREASE = 0.3;
 
     /**
-     * The relative Amount of padding between the enemies.
+     * The relative amount of padding between the enemies.
      */
     public static final double SHIP_PADDING = 0.01;
 

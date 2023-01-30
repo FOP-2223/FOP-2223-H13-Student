@@ -8,7 +8,9 @@ import static h13.controller.GameConstants.*;
 import static org.tudalgo.algoutils.student.Student.crash;
 
 /**
- * A PlayerController is responsible for instantiating and updating the players.
+ * A {@link PlayerController} is responsible for instantiating and updating the players.
+ *
+ * @see Player
  */
 public class PlayerController {
     // --Variables-- //

@@ -8,7 +8,7 @@ import static h13.controller.GameConstants.ORIGINAL_GAME_BOUNDS;
 import static org.tudalgo.algoutils.student.Student.crash;
 
 /**
- * A Utils class containing utility methods.
+ * A {@link Utils} class containing utility methods.
  */
 public class Utils {
 

@@ -20,24 +20,27 @@ public final class SceneSwitcher {
 
     /**
      * An enum that represents the different scenes that can be switched to.
+     *
+     * @see Scene
+     * @see SceneAndController
      */
     public enum SceneType {
         // --Enum Constants-- //
 
         /**
-         * The main menu scene.
+         * The "Main Menu" scene.
          */
         MAIN_MENU(() -> SceneAndController.fromScene(new MainMenuScene())),
         /**
-         * The "about" scene.
+         * The "About" scene.
          */
         ABOUT(() -> SceneAndController.fromScene(new AboutScene())),
         /**
-         * The settings scene.
+         * The "Settings" scene.
          */
         SETTINGS(() -> SceneAndController.fromScene(new SettingsScene())),
         /**
-         * The highscore scene.
+         * The "Highscore" scene.
          */
         HIGHSCORE(() -> SceneAndController.fromScene(new HighscoreScene())),
         /**
