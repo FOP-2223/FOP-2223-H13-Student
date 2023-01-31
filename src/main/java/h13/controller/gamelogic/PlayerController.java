@@ -8,29 +8,25 @@ import static h13.controller.GameConstants.*;
 import static org.tudalgo.algoutils.student.Student.crash;
 
 /**
- * A {@link PlayerController} is responsible for instantiating and updating the players.
- *
- * @see Player
+ * A {@link PlayerController} is responsible for instantiating and updating the {@linkplain Player players}.
  */
 public class PlayerController {
     // --Variables-- //
 
     /**
-     * The {@link Player} controlled by this PlayerController.
-     *
-     * @see #player
+     * The {@link Player} controlled by this {@link PlayerController}.
      */
     private final Player player;
 
     /**
-     * The game controller.
+     * The {@link GameController}.
      */
     private final GameController gameController;
 
     // --Constructors-- //
 
     /**
-     * Creates a new PlayerController.
+     * Creates a new {@link PlayerController}.
      *
      * @param gameController The game controller.
      */

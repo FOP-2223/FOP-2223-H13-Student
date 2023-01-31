@@ -23,7 +23,7 @@ public class GameInputHandler {
     private final Set<KeyCode> keysPressed = new HashSet<>();
 
     /**
-     * A List of event handlers that are called when a key is pressed.
+     * A List of {@linkplain EventHandler event handlers} that are called when a key is pressed.
      */
     private final List<EventHandler<KeyEvent>> onKeyPressed = new ArrayList<>();
 
@@ -40,7 +40,7 @@ public class GameInputHandler {
     // --Constructors-- //
 
     /**
-     * Creates a new GameInputHandler.
+     * Creates a new {@link GameInputHandler}.
      *
      * @param scene The scene to handle input for.
      */
