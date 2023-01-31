@@ -15,8 +15,8 @@ import org.junitpioneer.jupiter.params.IntRangeSource;
 import org.sourcegrade.jagr.api.rubric.TestForSubmission;
 import org.tudalgo.algoutils.tutor.general.assertions.Context;
 
-import static h13.util.StudentLinks.BattleShipLinks.BattleShipMethodLink.IS_ENEMY_METHOD;
-import static h13.util.StudentLinks.BattleShipLinks.BattleShipMethodLink.IS_FRIEND_METHOD;
+import static h13.util.StudentLinks.BulletLinks.BulletMethodLink.CAN_HIT_METHOD;
+import static h13.util.StudentLinks.BulletLinks.BulletMethodLink.HIT_METHOD;
 import static h13.util.StudentLinks.SpriteLinks.SpriteMethodLink.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -40,8 +40,8 @@ public class BulletTest {
         final BattleShip ship1 = spy(new Enemy(pos1, pos1, 0, 0, mock(GameState.class)));
         final boolean isHit = pos2 == 0;
         final BattleShip ship2 = enemy ?
-            spy(new Player(pos2, pos2, 0, mock(GameState.class))) :
-            spy(new Enemy(pos2, pos2, 0, 0, mock(GameState.class)));
+                                 spy(new Player(pos2, pos2, 0, mock(GameState.class))) :
+                                 spy(new Enemy(pos2, pos2, 0, 0, mock(GameState.class)));
 
         IS_ALIVE_METHOD.doReturn(ship2, isAlive);
         IS_DEAD_METHOD.doReturn(ship2, !isAlive);
@@ -59,8 +59,7 @@ public class BulletTest {
             .add("isAlive", isAlive)
             .build();
 
-        final boolean actual = bullet.canHit(ship2);
-
+        final boolean actual = CAN_HIT_METHOD.invoke(context, bullet, ship2);
         assertEquals(enemy && isAlive && isHit, actual, context, r -> String.format("Expected canHit to return %b but was %b", isHit && isAlive && enemy, actual));
     }
 
@@ -78,16 +77,18 @@ public class BulletTest {
             .add("Bullet", PrettyPrinter.prettyPrint(bullet))
             .build();
 
-        doReturn(true).when(hitter).isEnemy(any());
         doReturn(false).when(hitter).isFriend(any());
-        doReturn(true).when(toHit).isEnemy(any());
         doReturn(false).when(toHit).isFriend(any());
 
-        IS_ALIVE_METHOD.doReturn(hitter, true);
-        IS_DEAD_METHOD.doReturn(toHit, true);
+        IS_DEAD_METHOD.doReturn(hitter, false);
+        IS_DEAD_METHOD.doReturn(toHit, false);
+        IS_DEAD_METHOD.doReturn(bullet, false);
+
+        DAMAGE_METHOD_WITH_AMOUNT.alwaysDoNothing(context, bullet);
+        DAMAGE_METHOD_WITH_AMOUNT.alwaysDoNothing(context, toHit);
 
         assertTrue(bullet.canHit(toHit), context, r -> String.format("The bullet should be able to hit the ship at position %d", position));
-        bullet.hit(toHit);
+        HIT_METHOD.invoke(context, bullet, toHit);
         assertFalse(bullet.canHit(toHit), context, r -> String.format("The bullet should not be able to hit the ship at position %d", position));
     }
 
@@ -96,28 +97,29 @@ public class BulletTest {
         final Bullet bullet = spy(new Bullet(0, 0, mock(GameState.class), mock(BattleShip.class), Direction.UP));
         final BattleShip ship = spy(new BattleShip(0, 0, 0, Color.AQUA, 1, mock(GameState.class)));
 
-        doNothing().when(ship).damage(anyInt());
-        doNothing().when(ship).damage();
-        doNothing().when(bullet).damage(anyInt());
-        doNothing().when(bullet).damage();
-
         final Context context = contextBuilder()
             .add("Hitting Bullet", PrettyPrinter.prettyPrint(bullet))
             .add("Ship to hit", PrettyPrinter.prettyPrint(ship))
             .build();
 
+        DAMAGE_METHOD_WITH_AMOUNT.alwaysDoNothing(context, ship);
+        DAMAGE_METHOD_WITH_AMOUNT.alwaysDoNothing(context, bullet);
 
         StudentLinks.BulletLinks.BulletMethodLink.CAN_HIT_METHOD.doReturn(bullet, true, ship);
-        bullet.hit(ship);
+        HIT_METHOD.invoke(context, bullet, ship);
 
-        DAMAGE_METHOD_WITH_AMOUNT.verify(contextBuilder().add(context).add("error", "The ship that was hit did not take the expected one damage.").build(),
+        DAMAGE_METHOD_WITH_AMOUNT.verify(
+            contextBuilder().add(context).add("error", "The ship that was hit did not take the expected one damage.").build(),
             ship,
             times(1),
-            1);
-        DAMAGE_METHOD_WITH_AMOUNT.verify(contextBuilder().add(context).add("error", "The Bullet that was hitting did not take the expected one damage.").build(),
+            1
+        );
+        DAMAGE_METHOD_WITH_AMOUNT.verify(
+            contextBuilder().add(context).add("error", "The Bullet that was hitting did not take the expected one damage.").build(),
             bullet,
             times(1),
-            1);
+            1
+        );
     }
 
     @ParameterizedTest
@@ -130,7 +132,10 @@ public class BulletTest {
             .add("Time passed", time)
             .build();
 
-        bullet.update(time);
+        IS_DEAD_METHOD.doReturnAlways(context, bullet, false);
+        DIE_METHOD.alwaysDoNothing(context, bullet);
+
+        UPDATE_METHOD.invoke(context, bullet, time);
         DIE_METHOD.verify(context, bullet, atLeastOnce());
     }
 
