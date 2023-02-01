@@ -20,6 +20,7 @@ public class EnemyTest {
     @BeforeEach
     public void setup() {
         ApplicationSettings.loadTexturesProperty().set(false);
+        ApplicationSettings.enemyShootingDelayProperty().set(0);
         // replace Math.random() calls in Enemy with MathRandomTester.random() calls
         enemy = spy(new Enemy(0, 0, 0, 0, mock(GameState.class)));
     }
@@ -27,7 +28,6 @@ public class EnemyTest {
     @Test
     public void testUpdateShootCalledWithMaxProbability() {
         ApplicationSettings.enemyShootingProbabilityProperty().set(1);
-        ApplicationSettings.enemyShootingDelayProperty().set(0);
         final var context = contextBuilder()
             .add("enemy", PrettyPrinter.prettyPrint(enemy))
             .add("shootingProbability", ApplicationSettings.enemyShootingProbabilityProperty().get())
@@ -42,7 +42,6 @@ public class EnemyTest {
     @Test
     public void testUpdateWithMinProbability() {
         ApplicationSettings.enemyShootingProbabilityProperty().set(0);
-        ApplicationSettings.enemyShootingDelayProperty().set(0);
 
         final var context = contextBuilder()
             .add("enemy", PrettyPrinter.prettyPrint(enemy))
