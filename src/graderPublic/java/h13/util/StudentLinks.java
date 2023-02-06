@@ -470,16 +470,13 @@ public class StudentLinks {
             INIT_METHOD(BasicMethodLink.of(Assertions.assertDoesNotThrow(
                 () -> GameScene.class.getDeclaredMethod("init")
             ))),
-            INIT_GAMEBOARD_METHOD(BasicMethodLink.of(Assertions.assertDoesNotThrow(
-                () -> {
-                    // Typo in initial student template
-                    try {
-                        return GameScene.class.getDeclaredMethod("initGameboard");
-                    } catch (NoSuchMethodException e) {
-                        return GameScene.class.getDeclaredMethod("initGameBoard");
-                    }
-                }
-            ))),
+            INIT_GAMEBOARD_METHOD(Assertions3.assertMethodExists(
+                BasicTypeLink.of(GameScene.class),
+                MatcherUtils.or(
+                    identical("initGameboard"),
+                    identical("initGameBoard")
+                )
+            )),
             GET_CONTROLLER_METHOD(BasicMethodLink.of(Assertions.assertDoesNotThrow(
                 () -> GameScene.class.getDeclaredMethod("getController")
             ))),
