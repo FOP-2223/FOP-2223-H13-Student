@@ -56,7 +56,7 @@ public class SpriteTest {
         final Sprite s = createSprite(health);
         final Context context = contextBuilder()
             .add("Sprite Health", health)
-            .add("Applied Damage", health)
+            .add("Applied Damage", damage)
             .build();
 
         DAMAGE_METHOD_WITH_AMOUNT.invoke(context, s, damage);
@@ -153,7 +153,7 @@ public class SpriteTest {
 
             final Sprite sprite = createSprite(1);
             UPDATE_METHOD.invoke(context, sprite, 0);
-            
+
             utilsMock.verify(() -> Utils.getNextPosition(
                 any(Bounds.class),
                 anyDouble(),
