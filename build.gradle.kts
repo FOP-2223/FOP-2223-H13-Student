@@ -44,7 +44,9 @@ jagr {
                             "-Dtestfx.robot=glass",
                             "-Dtestfx.headless=true",
                             "-Dprism.order=sw",
-                            "-Djdk.attach.allowAttachSelf=true"
+                            "-Djdk.attach.allowAttachSelf=true",
+                            "-Dprism.lcdtext=false",
+                            "-Dprism.subpixeltext=false"
                         )
                     ),
                     transformers = Transformers(
